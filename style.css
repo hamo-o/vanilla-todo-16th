@@ -42,6 +42,15 @@ div[class$='-box'] {
   padding: 2rem;
 }
 
+div[class$='__title'] {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+i {
+  padding: 0.5rem;
+}
+
 .input-box {
   height: 8rem;
 
@@ -64,9 +73,4 @@ div[class$='-box'] {
 
 .done-box {
   height: 100%;
-}
-
-div[class$='__title'] {
-  font-size: 1.2rem;
-  font-weight: bold;
 }
