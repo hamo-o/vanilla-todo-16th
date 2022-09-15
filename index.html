@@ -3,12 +3,54 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/b453b8b1fc.js"
+      crossorigin="anonymous"
+    ></script>
     <title>Vanilla Todo</title>
     <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
-    <div class="container"></div>
+    <div class="container">
+      <div class="input-box">
+        <div class="input-box__title">🔥투두리스트🔥</div>
+        <form class="input-box__content">
+          <input class="input-box__input" placeholder="할 일을 입력하세요" />
+          <button type="submit" class="input-box__btn">
+            <i class="fa-solid fa-circle-plus"></i>
+          </button>
+        </form>
+      </div>
+      <div class="list-box">
+        <div class="list-box__title">
+          📝To Do
+          <span class="list-box__count">(0)</span>
+        </div>
+        <ul class="list-box__list">
+          <li class="list-box__item">
+            <span class="list-box__text"></span>
+            <span class="list-box__btn"
+              ><i class="fa-solid fa-circle-xmark"></i
+            ></span>
+          </li>
+        </ul>
+      </div>
+      <div class="done-box">
+        <div class="done-box__title">
+          🌟Done
+          <span class="done-box__count">(0)</span>
+        </div>
+        <ul class="done-box__list">
+          <li class="done-box__item">
+            <span class="done-box__text"></span>
+            <span class="done-box__btn"
+              ><i class="fa-solid fa-circle-xmark"></i
+            ></span>
+          </li>
+        </ul>
+      </div>
+    </div>
   </body>
   <script src="script.js"></script>
 </html>
