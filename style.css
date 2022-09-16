@@ -71,6 +71,10 @@ i {
   border-bottom: 1px solid lightgray;
 }
 
+.list-box__btn {
+  cursor: pointer;
+}
+
 .done-box {
   height: 100%;
 }
