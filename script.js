@@ -57,5 +57,10 @@ const updateTodoCount = () => {
 };
 
 const delTodo = (e) => {
-  console.log('delete!');
+  const target = e.target.parentNode;
+  todoList.removeChild(target);
+
+  todoCount--;
+
+  updateTodoCount();
 };
