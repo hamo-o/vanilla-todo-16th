@@ -54,6 +54,34 @@ const renderTodoList = (text) => {
   updateTodoCount();
 };
 
+// Done 부분 렌더링
+const renderDoneList = (text) => {
+  const newDone = document.createElement('li');
+  const newDoneSpan = document.createElement('span');
+  const doneDelBtn = document.createElement('i');
+
+  // item text
+  newDoneSpan.innerText = text;
+  newDoneSpan.className = 'done-box__text';
+  newDoneSpan.addEventListener('click', toggleTodo);
+
+  // item 삭제버튼
+  doneDelBtn.className = 'done-box__btn fa-solid fa-circle-xmark';
+  doneDelBtn.addEventListener('click', delTodo);
+
+  // li 태그 안에 넣어주기
+  newDone.className = 'done-box__item';
+  newDone.appendChild(newDoneSpan);
+  newDone.appendChild(doneDelBtn);
+
+  // ul 태그 안에 새로운 item 넣어주기
+  doneList.appendChild(newDone);
+
+  doneCount++;
+
+  updateDoneCount();
+};
+
 const updateTodoCount = () => {
   const countText = document.querySelector('.list-box__count');
   countText.innerText = `(${todoCount})`;
@@ -64,6 +92,7 @@ const updateDoneCount = () => {
   countText.innerText = `(${doneCount})`;
 };
 
+// item 삭제
 const delTodo = (e) => {
   const target = e.target.parentNode;
 
@@ -78,6 +107,15 @@ const delTodo = (e) => {
   }
 };
 
+// item 토글
 const toggleTodo = (e) => {
-  console.log('move!');
+  const target = e.target.parentNode;
+
+  if (target.className === 'list-box__item') {
+    delTodo(e);
+    renderDoneList(e.target.textContent);
+  } else {
+    delTodo(e);
+    renderTodoList(e.target.textContent);
+  }
 };
