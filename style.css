@@ -1,5 +1,13 @@
 @import url('./reset.css');
 
+@font-face {
+  font-family: 'GmarketSansMedium';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff')
+    format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 html {
   width: 100vw;
   height: 100vh;
@@ -44,7 +52,8 @@ div[class$='-box'] {
 
 div[class$='__title'] {
   font-size: 1.2rem;
-  font-weight: bold;
+  font-weight: 700;
+  font-family: 'GmarketSansMedium';
 }
 
 i {
@@ -73,6 +82,7 @@ i {
 
 .list-box__text {
   cursor: pointer;
+  font-family: 'GmarketSansMedium';
 }
 
 .list-box__btn {
@@ -86,8 +96,11 @@ i {
 .done-box__item {
   color: lightgray;
   text-decoration-line: line-through;
+}
 
+.done-box__text {
   cursor: pointer;
+  font-family: 'GmarketSansMedium';
 }
 
 .done-box__btn {
