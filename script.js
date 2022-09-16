@@ -1,6 +1,6 @@
 const myForm = document.querySelector('.input-box__content');
-const todoInput = document.querySelector('.input-box__input');
 const todoList = document.querySelector('.list-box__list');
+const doneList = document.querySelector('.done-box__list');
 
 let todoCount = 0;
 let doneCount = 0;
@@ -9,6 +9,7 @@ let doneCount = 0;
 const createTodo = (e) => {
   e.preventDefault();
 
+  const todoInput = document.querySelector('.input-box__input');
   const todoInputVal = todoInput.value;
 
   if (todoInputVal) {
@@ -31,12 +32,14 @@ const renderTodoList = (text) => {
   // item text
   newTodoSpan.innerText = text;
   newTodoSpan.className = 'list-box__text';
+  newTodoSpan.addEventListener('click', toggleTodo);
 
   // item 삭제버튼
   todoDelBtn.className = 'list-box__btn fa-solid fa-circle-xmark';
   todoDelBtn.addEventListener('click', delTodo);
 
   // li 태그 안에 넣어주기
+  newTodo.className = 'list-box__item';
   newTodo.appendChild(newTodoSpan);
   newTodo.appendChild(todoDelBtn);
 
@@ -56,11 +59,25 @@ const updateTodoCount = () => {
   countText.innerText = `(${todoCount})`;
 };
 
+const updateDoneCount = () => {
+  const countText = document.querySelector('.done-box__count');
+  countText.innerText = `(${doneCount})`;
+};
+
 const delTodo = (e) => {
   const target = e.target.parentNode;
-  todoList.removeChild(target);
 
-  todoCount--;
+  if (target.className === 'list-box__item') {
+    todoList.removeChild(target);
+    todoCount--;
+    updateTodoCount();
+  } else {
+    doneList.removeChild(target);
+    doneCount--;
+    updateDoneCount();
+  }
+};
 
-  updateTodoCount();
+const toggleTodo = (e) => {
+  console.log('move!');
 };

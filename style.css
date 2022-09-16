@@ -71,10 +71,25 @@ i {
   border-bottom: 1px solid lightgray;
 }
 
+.list-box__text {
+  cursor: pointer;
+}
+
 .list-box__btn {
   cursor: pointer;
 }
 
 .done-box {
   height: 100%;
+}
+
+.done-box__item {
+  color: lightgray;
+  text-decoration-line: line-through;
+
+  cursor: pointer;
+}
+
+.done-box__btn {
+  cursor: pointer;
 }
