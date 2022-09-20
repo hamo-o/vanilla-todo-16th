@@ -40,8 +40,7 @@ const renderTodoList = (text) => {
 
   // li 태그 안에 넣어주기
   newTodo.className = 'list-box__item';
-  newTodo.appendChild(newTodoSpan);
-  newTodo.appendChild(todoDelBtn);
+  newTodo.append(newTodoSpan, todoDelBtn);
 
   // ul 태그 안에 새로운 item 넣어주기
   todoList.appendChild(newTodo);
@@ -71,8 +70,7 @@ const renderDoneList = (text) => {
 
   // li 태그 안에 넣어주기
   newDone.className = 'done-box__item';
-  newDone.appendChild(newDoneSpan);
-  newDone.appendChild(doneDelBtn);
+  newDone.append(newDoneSpan, doneDelBtn);
 
   // ul 태그 안에 새로운 item 넣어주기
   doneList.appendChild(newDone);
@@ -97,11 +95,11 @@ const delTodo = (e) => {
   const target = e.target.parentNode;
 
   if (target.className === 'list-box__item') {
-    todoList.removeChild(target);
+    target.remove();
     todoCount--;
     updateTodoCount();
   } else {
-    doneList.removeChild(target);
+    target.remove();
     doneCount--;
     updateDoneCount();
   }
